@@ -4,6 +4,12 @@ var efifaAppCtrls = angular.module('efifaAppCtrls', []);
 
 /* Controllers */
 efifaAppCtrls.controller('MainCtrl',function($scope, $location, $http) {
+
+    $scope.header = 
+    {
+        value : "Football"
+    }
+
     $scope.tabs = [
         {
             'name': 'Home',
@@ -13,10 +19,10 @@ efifaAppCtrls.controller('MainCtrl',function($scope, $location, $http) {
             'name': 'My Predictions',
             'url': '/predictions'
         },
-        {
-            'name': 'Leaders Board',
-            'url': '/leaders'
-        },
+        // {
+        //     'name': 'Leaders Board',
+        //     'url': '/leaders'
+        // },
         {
             'name': 'Team Standings',
             'url': '/teams'
@@ -28,6 +34,29 @@ efifaAppCtrls.controller('MainCtrl',function($scope, $location, $http) {
         {
             'name': 'Rules',
             'url': '/rules'
+        }
+    ];
+
+        $scope.tabs2 = [
+        {
+            'name': 'Football',
+            'url': '/user/home'
+        },
+        {
+            'name': 'Cricket',
+            'url': '/user/home'
+        },
+        {
+            'name': 'Kabaddi',
+            'url': '/user/home'
+        },
+        {
+            'name': 'BasketBall',
+            'url': '/user/home'
+        },
+        {
+            'name': 'Tennis',
+            'url': '/user/home'
         }
     ];
     $http.get("main/admin").success(function(data) {
@@ -49,11 +78,19 @@ efifaAppCtrls.controller('MainCtrl',function($scope, $location, $http) {
         }
     })
     $scope.activeTab=1;
+    $scope.activeTab2=1;
     $location.path('/user/home');
 
     $scope.setActive = function(index) {
         $scope.activeTab=index;
         $location.path($scope.tabs[index].url);
+    }
+    $scope.setActiveTab2 = function(index) {
+        $scope.activeTab2=index;
+        $location.path($scope.tabs2[index].url);
+    }
+    $scope.setHeader = function(name) {
+        $scope.header.value = name
     }
 
 });

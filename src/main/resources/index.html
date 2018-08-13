@@ -16,13 +16,17 @@
     <script src="js/services.js"></script>
     <script src="js/controllers.js"></script>
 </head>
-<body ng-controller="MainCtrl">
-    <table style="vertical-align: top; table-layout: fixed; word-wrap: normal; width: 90%; height: 90%; background-color: rgba(240, 255, 255, 0.3)/*;opacity: 0.67*/" align="center">
+<body ng-controller="MainCtrl" >
+    <tabset justified="true">
+        <tab ng-repeat="tab in tabs2" heading="{{tab.name}}" select="setActiveTab2($index)" ng-click="setHeader(tab.name)"/>
+    </tabset>
+    <br>
+    <table style="vertical-align: top; table-layout: fixed; word-wrap: normal; width: 90%; height: 90%; background-color: rgba(240, 255, 255, 0.3);" align="center">
         <tr style="height: 50px">
             <td colspan="2" align="center">
                 <form action="logout" method="post">
                     <span align="center" style="font-size: 32px; color: seagreen; padding-top: 6px">
-                        <b>eFootball <span style="font-size: xx-small; font-weight: bold">il</span>legal</b>
+                        <b>{{header.value}}</b>
                     </span>
                     <span style="float: right; padding-right: 6px; padding-top: 6px">
                         <input class="btn btn-danger" style="background-color: inherit; font-weight: bold; color: seagreen" type="submit" value="Sign Out"/>

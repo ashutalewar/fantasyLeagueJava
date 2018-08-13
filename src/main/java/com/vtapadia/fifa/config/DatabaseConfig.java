@@ -23,13 +23,13 @@ public class DatabaseConfig {
     @Value("${eFifa.db:postgresql}")
     String database;
 
-    @Value("${eFifa.db.url}")
+    @Value("jdbc:postgresql://localhost/efifa")
     String databaseUrl;
 
-    @Value("${eFifa.db.username}")
+    @Value("ashish")
     String databaseUsername;
 
-    @Value("${eFifa.db.password}")
+    @Value("ubuntu123")
     String databasePassword;
 
     @Bean
